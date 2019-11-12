@@ -3,6 +3,8 @@ const http = require('http');
 
 
 const movies = require('./src/movies')
+const faqs = require('./src/preguntasFrequentes')
+
 
 http.createServer((req, res) => {
 	res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
@@ -27,7 +29,7 @@ http.createServer((req, res) => {
 			res.end('Contacto');
 			break;
 		case '/preguntas-frecuentes':
-			res.end('Preguntas Frecuentes');
+			res.end(JSON.stringify(faqs));
 			break;
 		default:
 			res.end('404 not found')
