@@ -1,7 +1,6 @@
 //modulo nativo de node
 const fs = require('fs')
 
-
 //imprime la direccion del archivo
 console.log(__dirname)
 
@@ -20,8 +19,16 @@ let peliculas = movieInfo.movies
 //creo el metodo que filtra las peliculas a las mas votadas
 let masVotadas = peliculas.filter((pelicula) => pelicula.vote_average > 7);
 
+//creo una funcion que me trae las peliculas por posicion
+let traerPeliculaEnPosicion = (pos) => peliculas[pos];
+
+
+let buscarPelicula = (q) => peliculas.filter((pelicula) =>  pelicula.title.toLowerCase().includes(q))
+
 //importo lo que me interesa del objeto
 module.exports ={ 
     peliculas,
-    masVotadas
+    masVotadas,
+    traerPeliculaEnPosicion,
+    buscarPelicula
 }
