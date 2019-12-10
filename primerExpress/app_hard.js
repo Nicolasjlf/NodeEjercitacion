@@ -7,16 +7,7 @@ const faqs = require('./src/preguntasFrequentes')
 
 fs = require('fs');
 
-fs.readFile('./index.html', function (err, html) {
-    if (err) {
-        throw err; 
-    }       
-    http.createServer(function(request, response) {  
-        response.writeHeader(200, {"Content-Type": "text/html"});  
-        response.write(html);  
-        response.end();  
-    }).listen(8000);
-});
+
 
 http.createServer((req, res) => {
 	res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
